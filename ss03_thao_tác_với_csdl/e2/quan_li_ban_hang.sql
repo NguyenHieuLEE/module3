@@ -13,7 +13,10 @@ insert into orderdetail value (1,1,3),(1,3,7),(1,4,2),(2,1,1),(3,1,8),(2,5,4),(2
 -- Hiển thị các thông tin  gồm oID, oDate, oPrice của tất cả các hóa đơn trong bảng Order
 select oID , oDate , oTotalPrice from `order` ;
 -- Hiển thị danh sách các khách hàng đã mua hàng, và danh sách sản phẩm được mua bởi các khách
-select cID,cName,pName from customer, product where customer.cID=product.pID;
+select  customer.cName , product.pName  as 'Sản Phẩm' from `order` 
+left join customer on customer.cID = `order`.cID
+left join orderdetail on orderdetail.oID = `order`.oID
+left join product on product.pID = orderdetail.pID;
 -- Hiển thị tên những khách hàng không mua bất kỳ một sản phẩm nào
 select cName from customer c left join `order` o on c.cId = o.cId where o.cId is null;
 -- Hiển thị mã hóa đơn, ngày bán và giá tiền của từng hóa đơn 
