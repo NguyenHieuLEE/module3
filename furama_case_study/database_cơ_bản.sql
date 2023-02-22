@@ -10,9 +10,9 @@ select k.ma_khach_hang,k.kho_ten,count(h.ma_khach_hang) as 'số lần đặt'
 from hop_dong as h
 left join khach_hang as k on k.ma_khach_hang=h.ma_khach_hang
 left join loai_khach as l on l.ma_loai_khach = k.ma_loai_khach
-where k.ma_khach_hang=1
-group by k.ma_khach_hang
-order by count(h.ma_khach_hang) desc;
+where l.ten_loai_khach='Diamond'
+group by k.ma_khach_hang,k.kho_ten
+order by count(h.ma_khach_hang) asc;
 -- 5
 select kh.ma_khach_hang , kh.kho_ten , lk.ten_loai_khach ,
 ifnull(ct.ma_hop_dong , 'Chưa có hợp đồng')  as 'Mã Hợp Đồng' ,
