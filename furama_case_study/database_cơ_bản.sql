@@ -65,7 +65,7 @@ where ngay_lam_hop_dong between '2021-01-01' and '2021-12-31'
 group by thang
 order by thang asc;
 -- 10 ma_hop_dong, ngay_lam_hop_dong, ngay_ket_thuc, tien_dat_coc, so_luong_dich_vu_di_kem 
-select hd.ma_hop_dong, ngay_lam_hop_dong, ngay_ket_thuc, tien_dat_coc, ifnull(sum(hdct.so_luong),0) as 'so luong' from hop_dong as hd
+select hd.ma_hop_dong, ngay_lam_hop_dong, ngay_ket_thuc, tien_dat_coc, ifnull(sum(hdct.so_luong),) as 'so luong' from hop_dong as hd
 left join hop_dong_chi_tiet hdct on hd.ma_hop_dong=hdct.ma_hop_dong
 group by hd.ma_hop_dong;
 -- 11
@@ -159,4 +159,16 @@ select * from dich_vu_di_kem;
 select nv.ma_nhan_vien as id , nv.nho_ten, nv.nemail, nv.nso_dien_thoai, nv.nngay_sinh, nv.ndia_chi from nhan_vien nv
 union
 select kh.ma_khach_hang , kh.kho_ten , kh.kemail , kh.kso_dien_thoai , kh.kngay_sinh , kh.kdia_chi from khach_hang kh;
+-- 21 
+create view nhan_vien_view as
+select  ma_nhan_vien, nho_ten, ndia_chi, nso_dien_thoai
+from nhan_vien 
+join hop_dong using (ma_nhan_vien)
+where ndia_chi like '%Đà Nẵng%' and year(ngay_lam_hop_dong)='2021';
+select * from nhan_vien_view;
+-- 22
+update nhan_vien_view set ndia_chi = 'Liên Chiểu';
+
+
+
 
