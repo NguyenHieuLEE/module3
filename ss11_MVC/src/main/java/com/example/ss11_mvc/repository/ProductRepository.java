@@ -17,8 +17,8 @@ public class ProductRepository implements IProductRepository {
         productsList.put(4, new Product(4, "Máy Sấy", 10000000, "color : Nâu"));
         productsList.put(5, new Product(5, "Điện Thoại Iphone", 10000000, "color : Đen"));
         productsList.put(6, new Product(6, "Bếp Ga", 10000000, "color : Xanh"));
-        productsList.put(7, new Product(7, "Máy Lọc Nước", 10000000, "color : Xanh BLUE"));
-        productsList.put(8, new Product(8, "Lapptop", 10000000, "color : Đen"));
+        productsList.put(7, new Product(7, "Máy Lọc Nước", 10000000, "color : Vàng"));
+        productsList.put(8, new Product(8, "Lapptop", 10000000, "color : Bạc"));
     }
 
     @Override

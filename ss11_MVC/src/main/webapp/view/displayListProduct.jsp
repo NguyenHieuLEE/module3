@@ -20,7 +20,7 @@
             text-align: center;
         }
         table{
-            margin-left: 35%;
+            margin-left: 0%;
         }
     </style>
 </head>
@@ -37,8 +37,9 @@
 <p>
     <span class="productsNull">${productsNull} </span>
 </p>
-<table border="1px">
+<table table border="0px" style="width: 100% ; text-align: center" ; cellpadding="10px">
     <tr>
+        <th>STT</th>
         <th>ID</th>
         <th>Name Product</th>
         <th>Price</th>
@@ -47,8 +48,9 @@
         <th>Delete</th>
     </tr>
 
-    <c:forEach var="product" items="${productList}">
+    <c:forEach var="product" items="${productList}" varStatus="status">
         <tr>
+            <td>${status.count}</td>
             <td>${product.getId()}</td>
             <td><a href="/Product?action=view&id=${product.getId()}">${product.getName()} </a></td>
             <td>${product.getPrice()}</td>

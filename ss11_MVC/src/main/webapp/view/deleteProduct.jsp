@@ -16,7 +16,7 @@
             color: aqua;
         }
         body{
-            background-color: antiquewhite;
+            background-color: aquamarine;
         }
     </style>
 </head>
